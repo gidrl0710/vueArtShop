@@ -1,46 +1,69 @@
 <template>
+
+  <Modal @closeModal="modalShow=false" :houseList="houseList01" :slctNum="slctNum" :modalShow="modalShow" :subStyle="subStyle"/>
+  <Modal @closeModal="modalShow02=false" :houseList="houseList02" :slctNum="slctNum02" :modalShow="modalShow02" :subStyle="subStyle"/>
+
   <div class="menu">
+    <p class="mainTitle">Welcome! Yeeun Art Shop</p>
     <a v-for="(menu, i) in menuList" :key="i">{{ menu }}</a>
   </div>
-  <!-- <div v-for="a in houseList" :key="a">
-    <h2 :class="subStyle"> {{ a }} 원룸</h2>
-    <p> 월세: {{ price }} 만원</p>
-  </div> -->
-  <div>
-    <h2 :class="subStyle"> {{ houseList[0] }} </h2>
-    <p> 월세: {{ price }} 만원</p>
-  </div> 
-  <div>
-    <h2 :class="subStyle"> {{ houseList[1] }} </h2>
-    <p> 월세: {{ price02 }} 만원</p>
-  </div> 
-  <div>
-    <h2 :class="subStyle"> {{ houseList[2] }} </h2>
-    <p> 월세: {{ price03 }} 만원</p>
-  </div> 
+
+  <Discount/>
+
+  <Card @openModal="modalShow=true; slctNum=$event" :houseList="houseList01" :subStyle="subStyle"/>
+  <Card @openModal="modalShow02=true; slctNum02=$event" :houseList="houseList02" :subStyle="subStyle"/>
+  
 </template>
 
 <script>
+// import {houseList} from './assets/roomData.js'
+import { houseList01, houseList02 } from './assets/roomData.js'
+import Discount from './components/TheDiscount.vue';
+import Modal from './components/TheModal.vue';
+import Card from './components/TheCard.vue';
 
 export default {
   name: 'App',
   data() {
     return{
       menuList : ['Home', 'Products', 'About'],
-      houseList: ['AA원룸','BB원룸','CC원룸'],
-      price: 100,
-      price02: 100,
-      price03: 150,
+      houseList01: houseList01,
+      houseList02: houseList02,
+      slctNum: 0,
+      slctNum02: 0,
+
+      modalShow: false, // modal창 상태
+      modalShow02: false,
 
       subStyle: 'subStyle'
     }
   },
+  methods: {
+    increase() {
+      this.numCrim[0] = this.numCrim[0]+1;
+    },
+  },
   components: {
-  }
+    Discount,
+    Modal,
+    Card,
+  },
 }
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+div {
+  box-sizing: border-box;
+}
+.flex-container {
+  display: flex;
+}
+.flex-container.flex-start {
+  justify-content: flex-start;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,16 +71,73 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.contents {
+  margin: auto;
+  padding: 0 50px;
+  width: 100%;  
+}
+.black-bg {
+  width:100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  position: fixed; padding: 20px;
+}
+.white-bg {
+  width: 50%; height: 73%;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
 .subStyle {
-  color: rgb(102, 102, 153);
+  color: rgb(12, 12, 153);
 }
 .menu {
   background: darkslateblue;
-  padding: 15px;
+  padding: 10px 15px;
   border-radius:  5px;
 }
 .menu a {
   color: white;
   padding: 250px
 }
+.btn {
+  background: rgb(145, 140, 140);
+  margin-top: 30px;
+  padding: 0.5rem 0.5rem;
+  font-weight: 700;
+  border-radius: .25rem;
+  border: 0 solid #ebedef;
+  color: white;
+}
+.btn2 {
+  background: rgb(136, 165, 229);
+  margin-top: 5px;
+  padding: 0.5rem 0.5rem;
+  font-weight: 700;
+  border-radius: .25rem;
+  border: 0 solid #ebedef;
+  color: white;
+}
+.roomImg {
+  margin-top: 80px;
+  margin-right: 50px;
+  width: 500px;
+  height: 250px;
+  border-radius: .25rem;
+}
+.roomSImg {
+  margin-top: 0;
+  margin-right: 50px;
+  width: 500px;
+  height: 250px;
+  border-radius: .25rem;
+}
+.mainTitle {
+  color: white;
+  font-weight: 800;
+  font-size: 35px;
+}
+
 </style>
