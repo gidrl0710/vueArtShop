@@ -1,11 +1,14 @@
 <template>
   <div class="discount">
-    <h2 style="color:red">20% off when you pay now!!!</h2>
+    <h2 style="color:rgb(212, 212, 9);">{{ amount }}% off when you pay now!!!</h2>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    amount: Number,
+  }
 }
 </script>
 

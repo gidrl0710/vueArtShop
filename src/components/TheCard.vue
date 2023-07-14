@@ -3,7 +3,7 @@
     <div v-for="(home, i) in houseList" :key="i">
       <img :src="home.image" class="roomImg">
       <h2 @mouseover="overEvent" :class="subStyle" > {{ home.title }} </h2>
-      <button @mouseover="overEvent" class="btn2" :style="overData" @click="sencMd(i)">more detail</button>
+      <button @mouseover="overEvent" class="btn2" :style="overData" @click="sendMd(i)">more detail</button>
     </div> 
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
     }
   },
   methods: {
-    sencMd(i) {
+    sendMd(i) {
       this.$emit('openModal', i);
     },
     overEvent() {
