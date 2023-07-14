@@ -2,7 +2,10 @@
 
 # Vue.js ArtShop
 - 그림판매 사이트, 해당 그림내용 세부내용 조회
-<img src="./src/assets/test01.jpg" width="30%" height="30%">
+<div style="display: flex">
+  <img src="./src/assets/test01.jpg" width="50%" height="50%">
+  <img src="./src/assets/test01.jpg" width="50%" height="50%">
+</div>
 
 # 상세내용 
 ## 1. 개발환경 설정
