@@ -3,8 +3,8 @@
 # Vue.js ArtShop
 - 그림판매 사이트, 해당 그림내용 세부내용 조회
 <div style="display: flex">
-  <img src="./src/assets/test01.jpg" width="50%" height="50%">
-  <img src="./src/assets/test01.jpg" width="50%" height="50%">
+  <div><img src="./src/assets/test01.jpg" width="50%" height="50%"></div>
+  <div><img src="./src/assets/test01.jpg" width="50%" height="50%"></div>
 </div>
 
 # 상세내용 
