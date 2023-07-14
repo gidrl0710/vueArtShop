@@ -2,7 +2,7 @@
 
 # Vue.js ArtShop
 - 그림판매 사이트, 해당 그림내용 세부내용 조회
-![Alt text](KakaoTalk_20230714_211309046.png)
+![Alt text](KakaoTalk_20230714_211309046.png) ![Alt text](KakaoTalk_20230714_211309046-1.png)
 
 # 상세내용 
 ## 1. 개발환경 설정
